@@ -37,9 +37,9 @@ class MainClass
         }
         return color;
     }
-    static int[] GetArrayFromConsole()
+    static int[] GetArrayFromConsole(int num = 5)  
     {
-        var result = new int[5];
+        var result = new int[num];
 
         for (int i = 0; i < result.Length; i++) 
         {
@@ -70,14 +70,7 @@ public static void Main(string[] args)
         Console.WriteLine("Мое имя: {0}", name);
         Console.WriteLine("Мой возраст: {0}", age);
 
-        Console.Write("Введите имя: ");
-        name = Console.ReadLine();
-        Console.Write("Введите возрас с цифрами:");
-        age = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Ваше имя: {0}", name);
-        Console.WriteLine("Ваш возраст: {0}", age);
-
+       
 
         (string name, int age) anketa;
         Console.Write("Введите имя: ");
@@ -101,5 +94,7 @@ public static void Main(string[] args)
         {
             Console.WriteLine(color);
         }
+
+
     }
 }
