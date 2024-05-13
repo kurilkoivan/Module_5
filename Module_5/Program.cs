@@ -63,6 +63,20 @@ class MainClass
         }
             return result;
     }
+
+    static void ShowArray(int[] massNum, bool sort = false) 
+    {
+        var temp = massNum;
+        if(sort) 
+        {
+            temp = SortArray(massNum);
+        }
+        foreach (int item in temp) 
+        {
+            Console.WriteLine(item);
+        }
+        
+    }
 public static void Main(string[] args)
     {
         var (name, age) = ("Евгения", 27);
@@ -95,7 +109,9 @@ public static void Main(string[] args)
             Console.WriteLine(color);
         }
 
-        var array = GetArrayFromConsole(3);
-        var sortedarray = SortArray(array);
+        var array = GetArrayFromConsole(10);
+        ShowArray(array,true);
+
+        
     }
 }
