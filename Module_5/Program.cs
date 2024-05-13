@@ -95,6 +95,7 @@ public static void Main(string[] args)
             Console.WriteLine(color);
         }
 
-
+        var array = GetArrayFromConsole(3);
+        var sortedarray = SortArray(array);
     }
 }
