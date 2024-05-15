@@ -1,30 +1,36 @@
 ﻿using System;
-using System.Net.Http.Headers;
+
+using System;
 
 class MainClass
 {
-  
-public static void Main(string[] args)
+    static void Main(string[] args)
     {
-        var someName = "Иван";
-        Console.WriteLine(someName);
-        GetName(ref someName);
-        Console.WriteLine(someName);
+        Console.WriteLine("Напишите что-то");
+        var str = Console.ReadLine();
 
-        var myage = 25;
-        ChangeAge(myage);
-        Console.WriteLine(myage);
+        Console.WriteLine("Укажите глубину эха");
+        var deep = int.Parse(Console.ReadLine());
+
+        Echo(str, deep);
+
         Console.ReadKey();
     }
 
-     static void GetName(ref string name)
+    
+    static void Echo(string saidword, int deep)
     {
-        Console.WriteLine("Введите имя");
-        name = Console.ReadLine();
-    }
-    static void ChangeAge(int age) 
-    {
-        Console.WriteLine("Введите возраст");
-        age = Convert.ToInt32(Console.ReadLine());
+        string modif = saidword;
+        if (modif.Length > 2) 
+        {
+           modif = modif.Remove(0, 2);
+        }
+
+        Console.WriteLine("..." + modif);
+
+        if (deep > 1)
+        {
+            Echo(modif, deep - 1);
+        }
     }
 }
