@@ -1,117 +1,30 @@
 ﻿using System;
+using System.Net.Http.Headers;
 
 class MainClass
 {
-    static string ShowColor(string username,int userage)
-    {
-        Console.WriteLine("{0}, {1} лет \nНапишите свой любимый цвет на английском с маленькой буквы", username, userage);
-        var color = Console.ReadLine();
-
-        switch (color)
-        {
-            case "red":
-                Console.BackgroundColor = ConsoleColor.Red;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is red!");
-                break;
-
-            case "green":
-                Console.BackgroundColor = ConsoleColor.Green;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is green!");
-                break;
-            case "cyan":
-                Console.BackgroundColor = ConsoleColor.Cyan;
-                Console.ForegroundColor = ConsoleColor.Black;
-
-                Console.WriteLine("Your color is cyan!");
-                break;
-            default:
-                Console.BackgroundColor = ConsoleColor.Yellow;
-                Console.ForegroundColor = ConsoleColor.Red;
-
-                Console.WriteLine("Your color is yellow!");
-                break;
-        }
-        return color;
-    }
-    static int[] GetArrayFromConsole(int num = 5)  
-    {
-        var result = new int[num];
-
-        for (int i = 0; i < result.Length; i++) 
-        {
-            Console.WriteLine("ВВедите элемент массива{0}", i + 1);
-            result[i] = int.Parse(Console.ReadLine());
-        }
-        return result;
-    }
-    static int[] SortArray(int[] result)
-    {
-        int temp = 0;
-        for (int i = 0; i < result.Length; i++)
-        {
-            for (int j = i + 1; result.Length > j; j++)
-                if (result[i] > result[j])
-                {
-                    temp = result[i];
-                    result[i] = result[j];
-                    result[j] = temp;
-                }
-        }
-            return result;
-    }
-
-    static void ShowArray(int[] massNum, bool sort = false) 
-    {
-        var temp = massNum;
-        if(sort) 
-        {
-            temp = SortArray(massNum);
-        }
-        foreach (int item in temp) 
-        {
-            Console.WriteLine(item);
-        }
-        
-    }
+  
 public static void Main(string[] args)
     {
-        var (name, age) = ("Евгения", 27);
+        var someName = "Иван";
+        Console.WriteLine(someName);
+        GetName(ref someName);
+        Console.WriteLine(someName);
 
-        Console.WriteLine("Мое имя: {0}", name);
-        Console.WriteLine("Мой возраст: {0}", age);
+        var myage = 25;
+        ChangeAge(myage);
+        Console.WriteLine(myage);
+        Console.ReadKey();
+    }
 
-       
-
-        (string name, int age) anketa;
-        Console.Write("Введите имя: ");
-        anketa.name = Console.ReadLine();
-        Console.Write("Введите возраст с цифрами: ");
-        anketa.age = Convert.ToInt32(Console.ReadLine());
-
-        Console.WriteLine("Ваше имя: {0}", anketa.name);
-        Console.WriteLine("Ваш возраст: {0}", anketa.age);
-
-        
-
-
-        var favcolors = new string[3];
-        for (int i = 0; i < favcolors.Length; i++) 
-        {
-            favcolors[i] = ShowColor(anketa.name,anketa.age);    
-        }
-        Console.WriteLine("Ваши любимые цвета");
-        foreach (var color in favcolors) 
-        {
-            Console.WriteLine(color);
-        }
-
-        var array = GetArrayFromConsole(10);
-        ShowArray(array,true);
-
-        
+     static void GetName(ref string name)
+    {
+        Console.WriteLine("Введите имя");
+        name = Console.ReadLine();
+    }
+    static void ChangeAge(int age) 
+    {
+        Console.WriteLine("Введите возраст");
+        age = Convert.ToInt32(Console.ReadLine());
     }
 }
